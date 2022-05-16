@@ -4,14 +4,14 @@ import type {
   InferGetServerSidePropsType,
   NextPage,
 } from "next";
+import { Box } from "@chakra-ui/react";
 
 const Users: NextPage = (
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) => {
   return (
-    <HomeLayout>
-      <h1>Users</h1>
-      <div>
+    <Box>
+      <HomeLayout>
         <ul>
           {props.users.map((user) => (
             <li key={user.id}>
@@ -19,8 +19,8 @@ const Users: NextPage = (
             </li>
           ))}
         </ul>
-      </div>
-    </HomeLayout>
+      </HomeLayout>
+    </Box>
   );
 };
 

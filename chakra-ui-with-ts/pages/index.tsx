@@ -20,7 +20,10 @@ const index: React.FC<LayoutProps> = (props) => {
   return (
     <Box w="100%">
       <Navbar />
-      <Flex>{props.children}</Flex>
+      {/* <Flex>{props.children}</Flex> */}
+      <Box>
+        <h1>Home Page</h1>
+      </Box>
     </Box>
   );
 };

@@ -1,11 +1,25 @@
 import React from "react";
+import type {
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+  NextPage,
+} from "next";
+import HomeLayout from "../../components/home-layout";
 
-const Comments: React.FC = () => {
+const Comments: NextPage = ({
+  comments,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
-    <div>
+    <HomeLayout>
       <h1>Comments</h1>
-    </div>
+    </HomeLayout>
   );
 };
 
 export default Comments;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  return {
+    props: {},
+  };
+};

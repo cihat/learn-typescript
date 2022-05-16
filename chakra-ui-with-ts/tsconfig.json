@@ -22,9 +22,10 @@
     "incremental": true
   },
   "include": [
-    "src",
-    "pages/_app.tsx"
-, "pages/ColorModeSwitcher.tsx"  ],
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
   "exclude": [
     "node_modules"
   ]

@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Box, Flex } from "@chakra-ui/react";
+import Navbar from "../components/navbar";
 
-const index = () => {
+type LayoutProps = {
+  children: React.ReactNode;
+};
+
+const index: React.FC<LayoutProps> = (props) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div>
-      <h1>Hello Next.js</h1>
-    </div>
+    <Box w="100%">
+      <Navbar />
+      <Flex>{props.children}</Flex>
+    </Box>
   );
 };
 

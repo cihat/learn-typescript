@@ -18,11 +18,7 @@ import {
   PopoverTrigger,
   PopoverContent,
 } from "@chakra-ui/react";
-import {
-  HamburgerIcon,
-  CloseIcon,
-  ChevronDownIcon,
-} from "@chakra-ui/icons";
+import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
 
 const Navbar: React.FC = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -60,7 +56,7 @@ const Navbar: React.FC = () => {
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
           >
-            Logo
+            <Link href="/">Learn Next.js | Chakra UI | TypeScript</Link>
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
@@ -201,27 +197,27 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Posts",
-    href: "posts",
+    href: "/posts",
   },
   {
     label: "Users",
-    href: "users",
+    href: "/users",
   },
   {
     label: "Todos",
-    href: "todos",
+    href: "/todos",
   },
   {
     label: "Comments",
-    href: "comments",
+    href: "/comments",
   },
   {
     label: "Photos",
-    href: "photos",
+    href: "/photos",
   },
   {
     label: "Albums",
-    href: "albums",
+    href: "/albums",
   },
 ];
 

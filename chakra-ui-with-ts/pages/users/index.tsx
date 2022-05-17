@@ -5,21 +5,19 @@ import type {
   NextPage,
 } from "next";
 import { Box } from "@chakra-ui/react";
+import { UsersProvider, useUsers } from "../../hocs/users-provider";
+import ListUsers from "../../containers/list-users";
 
 const Users: NextPage = (
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) => {
   return (
     <Box>
-      <HomeLayout>
-        <ul>
-          {props.users.map((user) => (
-            <li key={user.id}>
-              <a href={`/users/${user.id}`}>{user.name}</a>
-            </li>
-          ))}
-        </ul>
-      </HomeLayout>
+      <UsersProvider users={props.users}>
+        <HomeLayout>
+          <ListUsers users={props.users} />
+        </HomeLayout>
+      </UsersProvider>
     </Box>
   );
 };

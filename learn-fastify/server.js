@@ -1,17 +1,16 @@
 const fastify = require("fastify")({ logger: true });
 const PORT = process.env.PORT || 5000;
-const items = require("./Items");
+const itemsRoutes = require("./routes/items");
+const swagger = require("fastify-swagger");
 
-fastify.get("/items", async (req, reply) => {
-  reply.send(items);
+fastify.register(swagger, {
+  exposeRoute: true,
+  routePrefix: "/docs",
+  swagger: {
+    info: { title: "fastify-api" },
+  },
 });
-
-fastify.get("/items/:id", async (req, reply) => {
-  const { id } = req.params;
-  const item = items.find((item) => item.id === id);
-
-  reply.send(item);
-});
+fastify.register(itemsRoutes);
 
 const start = async () => {
   try {
